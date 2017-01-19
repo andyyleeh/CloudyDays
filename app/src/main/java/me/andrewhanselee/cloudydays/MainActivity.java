@@ -18,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressBar mProgBar;
     private RecyclerView mRView;
-    private Adapter mAdapter;
     private TextView mError;
+    private TextView mCity;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,79 +31,48 @@ public class MainActivity extends AppCompatActivity {
         mProgBar = (ProgressBar) findViewById(R.id.pb_load);
         mRView = (RecyclerView) findViewById(R.id.rv_forecast);
         mError = (TextView) findViewById(R.id.tv_error);
+        mCity = (TextView) findViewById(R.id.tv_city);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        mRView.setLayoutManager(layoutManager);
-
-        mAdapter = new Adapter();
-        mRView.setAdapter(mAdapter);
-
-        loadWeatherData();
+        showWeather();
     }
 
-    String location = "Montreal,ca";
-    String mode = "json";
-    String units = "metric";
-    String numberDays = "1";
+    String city = "montreal,ca";
 
-
-    private void loadWeatherData() {
-        URL searchURL = JsonParse.getWeather(location, mode, units, numberDays);
-        new retrieveData().execute(searchURL);
-        mRView.setVisibility(View.VISIBLE);
-        mError.setVisibility(View.INVISIBLE);
+    public void showWeather(){
+        URL url = Network.getURL(city);
+       new getData().execute(url);
     }
 
-    private void showError(){
-        mError.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-
-    public class retrieveData extends AsyncTask <URL, Void, String[]>{
-
+    public class getData extends AsyncTask<URL, Void, String>{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // loading bar
             mProgBar.setVisibility(View.VISIBLE);
         }
 
         @Override
-        protected String[] doInBackground(URL... params) {
-            URL search = params[0];
-            String weatherResponse = null;
+        protected String doInBackground(URL... params) {
+            URL weather = params[0];
+            String JsonResponse = null;
 
-            try {
-                weatherResponse = JsonParse.getResponse(search);
-
-                String[] responseArray = OpenWeatherJson.weatherJsonData(MainActivity.this, weatherResponse);
-
-                return responseArray;
-            } catch (Exception e){
+            try{
+                JsonResponse = Network.getResponse(weather);
+            }catch(Exception e){
                 e.printStackTrace();
-                return null;
             }
+            return JsonResponse;
         }
 
         @Override
-        protected void onPostExecute(String[] strings) {
-            super.onPostExecute(strings);
-            if(strings != null){
-                mRView.setVisibility(View.VISIBLE);
-                mAdapter.setData(strings);
-            } else{
-                showError();
-            }
-            //loading bar gone
+        protected void onPostExecute(String strings) {
             mProgBar.setVisibility(View.INVISIBLE);
+            mCity.setText(strings);
         }
     }
+
+
+
+
 
 
 }
