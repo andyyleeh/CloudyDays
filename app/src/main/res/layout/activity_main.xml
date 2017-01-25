@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v4.widget.ContentLoadingProgressBar
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:id="@+id/pb_load"
-        android:visibility="invisible"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rv_forecast"/>
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="#000000">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error"
-        android:id="@+id/tv_error"
-        android:visibility="invisible"/>
+        android:id="@+id/tv_temp"/>
 
-</FrameLayout>
+    <ProgressBar
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="invisible"
+        android:id="@+id/pb_load"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_error"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/pb_load"
+        android:layout_toRightOf="@+id/tv_temp"
+        android:layout_toEndOf="@+id/tv_temp"
+        android:layout_marginTop="109dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_city"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_below="@+id/tv_temp"
+        android:layout_toRightOf="@+id/tv_temp"
+        android:layout_toEndOf="@+id/tv_temp"
+        android:layout_marginTop="72dp" />
+</RelativeLayout>
+
