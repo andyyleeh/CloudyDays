@@ -4,6 +4,7 @@
     <item
         android:title="Settings"
         app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_manage"
         android:orderInCategory="1"
         android:id="@+id/item_setting" />
 
