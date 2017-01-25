@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
        new getData().execute(url);
     }
 
-    public class getData extends AsyncTask<URL, Void, String[]>{
+    public class getData extends AsyncTask<URL, Void, String>{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -59,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected String[] doInBackground(URL... params) {
+        protected String doInBackground(URL... params) {
             URL weather = params[0];
-            String[] JsonResponse = null;
+            String JsonResponse = null;
 
             try{
                 String JsonObject = Network.getResponse(weather);
-                JsonResponse = JsonParse.parsedData(MainActivity.this, JsonObject);
+                JsonResponse = JsonParse.parsedDay(MainActivity.this, JsonObject);
                 return JsonResponse;
 
             }catch(Exception e){
@@ -75,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(String[] JsonResponse) {
+        protected void onPostExecute(String JsonResponse) {
             mProgBar.setVisibility(View.INVISIBLE);
-            mCity.setText(JsonResponse[0]);
+            mCity.setText(JsonResponse);
         }
     }
 
