@@ -1,8 +1,13 @@
 package me.andrewhanselee.cloudydays;
 
-/**
- * Created by Andrew on 2017-01-25.
- */
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class FullForecast {
+public class FullForecast extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_full_forecast);
+    }
 }
