@@ -55,9 +55,9 @@ public class DateFormat {
         long dayNum = getDate(millis);
         long currentNum = getDate(System.currentTimeMillis());
         if(dayNum == currentNum){
-            return "Today is";
+            return "Today ";
         } else if(dayNum == currentNum+1){
-            return "Tomorrow is";
+            return "Tomorrow ";
         } else{
             SimpleDateFormat simpleDate = new SimpleDateFormat("EEEE");
             return simpleDate.format(millis);

@@ -17,8 +17,8 @@ import java.util.Scanner;
 public class Network {
     private static String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?";
     private static String FORMAT = "json";
-    static String UNITS = "metric";
-    private static int NUM_DAYS = 7;
+    public static String UNITS = "metric";
+    private static int NUM_DAYS = 14;
     final static String QUERY_PARAM = "q";
     final static String LAT_PARAM = "lat";
     final static String LON_PARAM = "lon";

@@ -8,11 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <!--<style name="MyCustomTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">-->
-        <!--<item name="android:actionBarStyle">@style/MyActionBarTheme</item>-->
+    <!--<item name="android:actionBarStyle">@style/MyActionBarTheme</item>-->
     <!--</style>-->
 
     <!--<style name="MyActionBarTheme" parent="@android:style/Widget.Holo.Light.ActionBar">-->
-        <!--<item name="android:background">ANY_HEX_COLOR_CODE</item>-->
+    <!--<item name="android:background">ANY_HEX_COLOR_CODE</item>-->
     <!--</style>-->
 </resources>

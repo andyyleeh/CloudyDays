@@ -59,6 +59,7 @@ public class FullForecast extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             mPBFull.setVisibility(View.VISIBLE);
+            mErrorMsg.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -85,6 +86,7 @@ public class FullForecast extends AppCompatActivity {
             if(JsonResponse != null){
                 mAdapter.setWeatherData(JsonResponse);
             } else{
+                mErrorMsg.setVisibility(View.VISIBLE);
 
             }
         }

@@ -3,6 +3,7 @@
     <string name="location">Montreal,ca</string>
     <string name="units">metric</string>
     <string name="mode">json</string>
+    <string name="fullF">View Weekly Forecast</string>
 
 
     <!--OpenWeatherMap Weather Conditions -->
@@ -87,8 +88,7 @@
     <string name="format_wind_mph">
         <xliff:g id="speed">%1$1.0f</xliff:g> mph <xliff:g id="direction">%2$s</xliff:g>
     </string>
-
-
+    <string name="title_activity_settings">Settings</string>
 
 
 </resources>
