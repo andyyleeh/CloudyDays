@@ -25,7 +25,7 @@ public class Settings extends AppCompatActivity {
 
 
         theme = (Button) findViewById(R.id.tv_themeSet);
-        location = (Button) findViewById(R.id.set_location);
+        location = (Button) findViewById(R.id.tv_locationSet);
 
     }
 

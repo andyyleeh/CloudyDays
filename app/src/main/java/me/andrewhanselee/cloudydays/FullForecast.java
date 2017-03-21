@@ -46,12 +46,12 @@ public class FullForecast extends AppCompatActivity {
         //set adapter to recycler view
         showWeather();
     }
-    private String city = "montreal, ca";
+
 
 
     public void showWeather() {
 
-        new FullForecast.getData().execute(city);
+        new FullForecast.getData().execute(MainActivity.city);
     }
 
     public class getData extends AsyncTask<String, Void, String[]> {

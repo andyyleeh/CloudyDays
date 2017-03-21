@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     private TextView mCity;
 //    private TextView CurrentTemp;
     private TextView CityName;
+    public static String city = "Montreal,ca";
 
 
     @Override
@@ -51,9 +52,20 @@ public class MainActivity extends AppCompatActivity
         showWeather();
     }
 
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        city = savedInstanceState.getString("city");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("city", city);
+
+    }
 
 
-    public static String city = "Montreal,ca";
     public void showWeather() {
         URL url = Network.getURL(city);
         new getData().execute(url);

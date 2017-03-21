@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:hint="Location"
+        android:textColorHint="#a9a9a9"
         android:id="@+id/newLocation"/>
 
     <Button
